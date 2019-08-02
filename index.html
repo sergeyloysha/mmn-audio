@@ -4,7 +4,7 @@
 <head>
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8" />
-  <link rel='stylesheet' href='src/player.scss'/>
+  <link rel='stylesheet' href='src/player.css'/>
 </head>
 
 <body>
@@ -184,7 +184,12 @@
   </div>
 
   <script src="https://unpkg.com/wavesurfer.js"></script>
-	<script src="src/player.js"></script>
+  <script src="src/player.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      Player.init();
+    })
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,174 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+.b-player {
+  position: relative;
+}
+.b-player__handle {
+  position: absolute;
+  top: 0;
+  border-left: 1px dashed #000;
+  bottom: 0;
+  left: 0%;
+  user-select: none;
+}
+.b-player__handle::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  transform: translateX(-53%);
+  width: 32px;
+  height: 29px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./icon-handle.svg');
+  cursor: pointer;
+  user-select: none;
+}
+.b-player__waveform {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.b-player__waveform wave {
+  height: 100% !important;
+}
+.b-player__waveform wave wave {
+  border-right: 0 !important;
+}
+.b-player__control {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 10%;
+  z-index: 3;
+}
+.b-player__control img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.b-player__control-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+  background-image: url(./icon-play.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.b-player__control-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.b-player__control-button_pause {
+  background-image: url(./icon-pause.svg);
+}
+@media screen and (min-width: 768px) {
+  .b-player__control-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .b-player__control-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+.b-player__content {
+  position: relative;
+  margin-left: 6%;
+}
+.b-player__waves {
+  position: relative;
+  z-index: 2;
+}
+.b-player__wave:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 0%;
+}
+.b-content {
+  padding-top: 50px;
+}
+.b-content__head {
+  background: #000;
+  padding: 50px;
+  text-align: center;
+}
+.b-content__head h1 {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #fdcb03;
+  font-weight: 300;
+  font-size: 44px;
+}
+.b-content__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.b-content__item {
+  position: relative;
+  width: 33.33332%;
+}
+.b-content__item::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+.b-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.b-card:hover video {
+  filter: grayscale(0%);
+}
+.b-card__name {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, .5);
+  padding: 5px;
+  z-index: 1;
+  font-size: 18px;
+}
+@media screen and (min-width: 992px) {
+  .b-card__name {
+    top: 25px;
+    left: 10px;
+    font-size: 24px;
+  }
+}
+.b-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.2s;
+}
